@@ -1,0 +1,103 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+.container {
+  min-height: 100vh;
+  background-color: #2c3e50;
+  display: flex;
+  flex-direction: column;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background-color: #1e1e1e;
+  color: #fff;
+  text-transform: uppercase;
+  font-size: 2.2rem;
+
+  &__logo {
+    padding: 2rem;
+  }
+
+  &__button {
+    padding: 2rem;
+    cursor: pointer;
+
+    &:hover {
+      background-color: #fff;
+      color: #1e1e1e;
+    }
+  }
+}
+
+.userCard--container {
+  flex-grow: 1;
+  padding: 5rem 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  &--grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-column-gap: 2rem;
+    grid-row-gap: 2rem;
+    justify-items: center;
+    align-items: center;
+    padding: 5rem 0;
+  }
+
+  & h2 {
+    color: #fff;
+    font-size: 2rem;
+  }
+}
+
+.userCard {
+  background-color: #fff;
+  padding: 1rem;
+  text-align: center;
+  border-radius: 3px;
+
+  &__image {
+    width: 15rem;
+  }
+
+  &__info {
+    text-align: left;
+    font-size: 2rem;
+  }
+}
+
+.userCards {
+  &--buttons {
+    color: #fff;
+    grid-column-start: span 3;
+    margin-top: 3rem;
+  }
+
+  &--button {
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    font-size: 2.5rem;
+    padding: 1rem 2rem;
+    background-color: #1e1e1e;
+    border-radius: 5px;
+
+    &:first-child {
+      margin-right: 1rem;
+    }
+  }
+}
