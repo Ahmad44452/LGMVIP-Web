@@ -3,10 +3,6 @@
 
   <p align="center">
     <br />
-    <br />
-    <br />
-    <br />
-    <br />
     <a href="https://todo-list-lgmvip.netlify.app">View Demo</a>
   </p>
 </div>
