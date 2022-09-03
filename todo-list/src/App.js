@@ -17,6 +17,7 @@ const App = () => {
     arr[id].isCompleted = !arr[id].isCompleted;
     setAllTasks(arr);
     setReRenderExtra(prev => !prev);
+    localStorage.setItem('allTasks', JSON.stringify(allTasks));
   }
 
   const editTaskGlobal = (id, text) => {
@@ -27,14 +28,15 @@ const App = () => {
     };
     setAllTasks(arr);
     setReRenderExtra(prev => !prev);
+    localStorage.setItem('allTasks', JSON.stringify(allTasks));
   }
 
   const deleteTask = (id) => {
-    setAllTasks(prev => {
-      prev.splice(id, 1);
-      return prev;
-    });
+    const arr = allTasks;
+    arr.splice(id, 1);
+    setAllTasks(arr);
     setReRenderExtra(prev => !prev);
+    localStorage.setItem('allTasks', JSON.stringify(allTasks));
   }
 
   const addTask = (e) => {
@@ -42,6 +44,7 @@ const App = () => {
     setAllTasks(prev => [...prev, { text: newTask, isCompleted: false }])
     inputRef.current.value = "";
     setShowingNewTask(false);
+    localStorage.setItem('allTasks', JSON.stringify(allTasks));
   }
 
   const inputRef = useRef();
@@ -62,10 +65,6 @@ const App = () => {
       setAllTasks(items);
     }
   }, []);
-
-  useEffect(() => {
-    localStorage.setItem('allTasks', JSON.stringify(allTasks));
-  }, [allTasks]);
 
   return (
     <div className="app__container">
