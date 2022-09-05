@@ -1,0 +1,208 @@
+*,
+*::before,
+*::after {
+  margin: 0;
+  border: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+  font-family: "Poppins", sans-serif;
+}
+
+.mainContainer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+nav {
+  text-align: center;
+  font-size: 3rem;
+  background-color: #45d7ad;
+  color: #fff;
+  font-weight: 600;
+  padding: 1rem 0;
+}
+
+.container {
+  flex-grow: 1;
+  display: flex;
+  align-items: stretch;
+}
+
+.form {
+  width: 50vw;
+  position: relative;
+  padding: 8rem 3.5rem;
+
+  &::after {
+    content: "";
+    position: absolute;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 2px;
+    height: 80%;
+    background-color: #45d7ad;
+  }
+
+  &__group {
+    margin-top: 2rem;
+
+    &--heading {
+      font-size: 2rem;
+      font-weight: 400;
+    }
+  }
+
+  &__input:focus {
+    outline: none;
+  }
+
+  &__input {
+    outline: none;
+    font-size: 1.7rem;
+    display: block;
+    width: 100%;
+    padding: 1.5rem 2rem;
+    border: 1px solid #73777b;
+    color: #1e1e1e;
+    border-radius: 5px;
+
+    &--error,
+    &--error:focus {
+      border-bottom: 2px solid #c21010 !important;
+    }
+
+    &::placeholder {
+      color: rgba(#1e1e1e, 0.7);
+    }
+
+    &:not(:placeholder-shown) + .form__label {
+      visibility: visible;
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  &__label {
+    color: #1e1e1e;
+    display: inline-block;
+    font-size: 1.55rem;
+    padding: 0.5rem 2rem;
+    transform: translateY(-4.2rem);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.5s;
+  }
+
+  &__pfp {
+    &--label {
+      font-size: 2rem;
+      letter-spacing: 0;
+    }
+
+    &--input {
+      margin-left: 3rem;
+    }
+  }
+
+  &__gender {
+    display: flex;
+  }
+
+  &__radio {
+    margin-left: 9rem;
+    font-size: 1.7rem;
+  }
+
+  &__skills {
+    display: flex;
+  }
+
+  &__checkbox {
+    display: flex;
+    font-size: 1.7rem;
+    margin-left: 11.8rem;
+    align-items: center;
+
+    &--group {
+      margin-right: 2rem;
+
+      label {
+        margin-left: 0.2rem;
+      }
+    }
+  }
+
+  &__button {
+    -webkit-tap-highlight-color: transparent;
+    border: none;
+    outline: none;
+    padding: 1rem 2rem;
+    cursor: pointer;
+    color: #fff;
+    font-size: 2rem;
+    border-radius: 5px;
+
+    &--enroll {
+      background-color: #0085fc;
+    }
+
+    &--clear {
+      background-color: #dc2a42;
+      margin-left: 1.5rem;
+    }
+  }
+}
+
+.students {
+  width: 50vw;
+  text-align: center;
+  padding: 4rem 2.5rem;
+
+  &__heading {
+    color: #1e1e1e;
+    font-size: 3rem;
+    text-transform: uppercase;
+    position: relative;
+
+    &::after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1px;
+      width: 75%;
+      background-color: #1e1e1e;
+    }
+  }
+}
+
+.card {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border: 1px solid rgba(#000, 0.4);
+  border-radius: 5px;
+  overflow: hidden;
+  margin-top: 2rem;
+
+  &__content {
+    text-align: left;
+    font-size: 1.5rem;
+    margin-left: 1rem;
+
+    &--name {
+      font-weight: 800;
+    }
+  }
+
+  &__image {
+    line-height: 0;
+  }
+}
