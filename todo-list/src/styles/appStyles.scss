@@ -1,0 +1,370 @@
+.app {
+  height: 85vh;
+  width: 60rem;
+  background-color: #fff;
+  position: relative;
+  border-radius: 8px;
+  padding: 1rem 2.5rem;
+  color: #1e1e1e;
+  display: flex;
+  flex-direction: column;
+
+  &__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    position: relative;
+  }
+
+  &__header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem;
+
+    &--left {
+      display: flex;
+      align-items: center;
+
+      &-day {
+        font-size: 4rem;
+        font-weight: 600;
+        margin-right: 0.5rem;
+      }
+
+      &-month {
+        font-size: 1.7rem;
+        font-weight: 600;
+        line-height: 1;
+        text-transform: uppercase;
+      }
+
+      &-year {
+        font-size: 1.5rem;
+        line-height: 1;
+      }
+    }
+
+    &--right {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-end;
+      &-day {
+        font-size: 2.5rem;
+        font-weight: 600;
+      }
+      &-logout {
+        cursor: pointer;
+        font-size: 1.5rem;
+        font-weight: 600;
+
+        &:hover {
+          color: red;
+        }
+      }
+    }
+  }
+
+  &__content {
+    flex-grow: 1;
+    font-size: 2rem;
+    overflow: auto;
+  }
+
+  &__add {
+    -webkit-tap-highlight-color: transparent;
+    background-color: #50e3a4;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    padding: 2rem;
+    text-align: center;
+    border-radius: 100%;
+    cursor: pointer;
+    z-index: 10;
+    transform: translate(-50%, 50%);
+    transition: transform 1s;
+    svg {
+      width: 3rem;
+      height: 3rem;
+      fill: #fff;
+      vertical-align: middle;
+    }
+
+    &--rotated {
+      transform: translate(-50%, 50%) rotate(405deg);
+    }
+
+    // &--content {
+    //   background-color: aqua;
+    //   position: absolute;
+    //   top: 0;
+    //   left: -100%;
+    //   width: 100%;
+    //   height: 100%;
+    // }
+  }
+}
+
+.overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transform: translateX(-100%);
+  transition: transform 1s;
+
+  &__bg {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 100%;
+    background-color: #50e3a4;
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translate(-50%, 50%);
+    transition: transform 1s;
+
+    &--show {
+      transform: scale(200);
+    }
+  }
+
+  &--show {
+    transform: translateX(0);
+  }
+
+  &__content {
+    // background-color: orange;
+    text-align: center;
+  }
+
+  &__heading {
+    text-transform: uppercase;
+    text-align: center;
+    color: #fff;
+    font-size: 7rem;
+    font-weight: 200;
+    line-height: 1;
+  }
+
+  &__input,
+  &__input:focus {
+    caret-color: #fff;
+    color: #fff;
+    width: 100%;
+    margin: 5rem 0;
+    font-size: 3rem;
+    outline: none;
+    border: none;
+    background-color: transparent;
+    border-bottom: 1px solid #fff;
+    font-family: "Poppins", sans-serif;
+    padding: 0.5rem 1rem;
+  }
+
+  &__input::placeholder {
+    color: #fff;
+  }
+
+  &__submit {
+    -webkit-tap-highlight-color: transparent;
+    cursor: pointer;
+    outline: none;
+    border: none;
+    padding: 1rem 3.2rem;
+    font-size: 2.5rem;
+    color: #50e3a4;
+    border-radius: 999px;
+    box-shadow: 0 0.8rem 2rem rgb(0 0 0 / 20%);
+    transition: all 0.3s;
+
+    &:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 1.3rem 2.5rem rgb(0 0 0 / 25%);
+    }
+  }
+}
+
+.task {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+
+  &:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__left {
+    display: flex;
+    align-items: center;
+
+    flex-grow: 1;
+  }
+
+  &__checkbox {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    border: 1px solid #000;
+    border-radius: 3px;
+    margin-right: 0.5rem;
+    line-height: 1;
+
+    svg {
+      vertical-align: middle;
+      visibility: hidden;
+      width: 2.2rem;
+      height: 2.2rem;
+    }
+  }
+
+  &__checkbox--checked {
+    svg {
+      visibility: visible;
+    }
+  }
+
+  &__text {
+    flex-grow: 1;
+
+    input,
+    input:focus {
+      font-size: 2rem;
+      width: 100%;
+      outline: none;
+      border: none;
+      font-family: "Poppins", sans-serif;
+      color: #1e1e1e;
+    }
+  }
+
+  &__text--completed {
+    text-decoration: line-through;
+    color: rgba(#1e1e1e, 0.5);
+  }
+
+  &__right {
+    display: flex;
+    align-items: center;
+  }
+
+  &__edit {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1;
+    margin: 0 1.2rem;
+
+    svg {
+      vertical-align: middle;
+    }
+
+    &:hover {
+      svg {
+        fill: #50e3a4;
+      }
+    }
+  }
+
+  &__edit--disabled {
+    pointer-events: none;
+
+    svg {
+      fill: rgba(#1e1e1e, 0.35);
+    }
+  }
+
+  &__delete {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    line-height: 1;
+
+    svg {
+      vertical-align: middle;
+      width: 3rem;
+      height: 3rem;
+    }
+
+    &:hover {
+      svg {
+        fill: #eb1d36;
+      }
+    }
+  }
+}
+
+.loading-screen {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  background-color: rgba(#000, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 999;
+
+  &__loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid #fff;
+    border-bottom-color: #50e3a4;
+    border-radius: 50%;
+    display: inline-block;
+    box-sizing: border-box;
+    animation: rotation 1s linear infinite;
+  }
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  // html {
+  //   background-color: #fff !important;
+  // }
+
+  .app {
+    height: 100vh;
+    width: 100vw;
+    border-radius: 0;
+    padding: 1rem;
+
+    &__header {
+      padding: 0;
+      margin-bottom: 3rem;
+    }
+
+    &__add {
+      position: absolute;
+      bottom: 100px;
+    }
+  }
+
+  .overlay {
+    &__bg {
+      bottom: 100px;
+    }
+
+    &__input,
+    &__input:focus {
+      font-size: 2rem;
+    }
+
+    &__submit {
+      padding: 0.6rem 2.8rem;
+      font-size: 1.8rem;
+    }
+  }
+}

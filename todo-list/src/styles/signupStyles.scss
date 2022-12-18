@@ -1,0 +1,86 @@
+.signup {
+  background-color: #fff;
+  color: #1e1e1e;
+  padding: 3rem 2rem;
+  border-radius: 5px;
+  width: 50rem;
+
+  &__wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+  }
+
+  &__heading {
+    font-size: 4rem;
+    font-weight: 300;
+    padding-bottom: 1rem;
+    margin-bottom: 5rem;
+    text-align: center;
+    line-height: 1;
+    position: relative;
+
+    &::before {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      height: 1px;
+      width: 70%;
+      background-color: #000;
+    }
+  }
+
+  &__form {
+    &--group {
+      margin-bottom: 1rem;
+      input {
+        width: 100%;
+        outline: none;
+        border: none;
+        background-color: #d6e4e5;
+        padding: 1rem 1rem;
+        font-size: 2rem;
+        border-radius: 3px;
+
+        &::placeholder {
+          color: #404258;
+        }
+      }
+    }
+
+    &--submit {
+      width: 100%;
+      cursor: pointer;
+      text-transform: uppercase;
+      background-color: transparent;
+      border: 1px solid #50e3a4;
+      color: #50e3a4;
+      outline: none;
+      padding: 1rem 0;
+      font-size: 2rem;
+      border-radius: 3px;
+      margin-top: 1rem;
+      transition: all 0.3s;
+
+      &:hover {
+        background-color: #50e3a4;
+        color: #fff;
+      }
+    }
+  }
+
+  &__toggle {
+    text-align: center;
+    cursor: pointer;
+    font-size: 1.5rem;
+    margin-top: 2rem;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
